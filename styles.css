@@ -128,16 +128,19 @@ h2 {
 .hero {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 8rem;
     min-height: 100vh;
     padding-top: 80px;
+    padding-left: 60px;
+    padding-right: 60px;
     background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
+    margin: 0 auto;
 }
 
 .hero-content {
-    flex: 1;
+    flex: 0 1 550px;
     animation: slideInLeft 0.8s ease;
-    max-width: 600px;
 }
 
 .hero-content h1 {
@@ -211,7 +214,7 @@ h2 {
 }
 
 .hero-image {
-    flex: 1;
+    flex: 0 1 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -469,55 +472,107 @@ h2 {
 .skills {
     padding: 100px 0;
     background: var(--bg-white);
+    perspective: 1000px;
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    perspective: 1200px;
 }
 
 .skill-card {
     background: var(--bg-light);
-    padding: 2.5rem;
-    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
     transition: var(--transition);
     border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 113, 227, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 
 .skill-card:hover {
     border-color: var(--primary-color);
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-medium);
-    background: var(--bg-white);
+    transform: translateY(-12px) rotateX(8deg) rotateZ(2deg);
+    box-shadow: 0 20px 60px rgba(0, 113, 227, 0.2);
+    background: linear-gradient(135deg, var(--bg-white) 0%, rgba(0, 113, 227, 0.02) 100%);
+}
+
+.skill-card:hover::before {
+    opacity: 1;
 }
 
 .skill-card h3 {
     color: var(--primary-color);
-    margin-bottom: 1.8rem;
-    font-size: 1.1rem;
-    font-weight: 600;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.skill-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 113, 227, 0.15));
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.2) rotateY(360deg);
 }
 
 .skill-card ul {
     list-style: none;
+    position: relative;
+    z-index: 2;
 }
 
 .skill-card li {
     color: var(--text-light);
-    padding: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
+    padding: 0.6rem 0;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .skill-card li::before {
     content: '✓';
-    position: absolute;
-    left: 0;
     color: var(--primary-color);
     font-weight: bold;
+    margin-right: 0.7rem;
+    font-size: 1.1rem;
+}
+
+.skill-card:hover li {
+    transform: translateX(5px);
+    color: var(--primary-color);
 }
 
 /* Sección Certificaciones */
@@ -930,6 +985,23 @@ h2 {
     }
 }
 
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 2rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .skill-card {
+        min-height: 280px;
+    }
+}
+
 @media (max-width: 480px) {
     .hero-content h1 {
         font-size: 2rem;
@@ -954,5 +1026,15 @@ h2 {
 
     .code-icon {
         font-size: 2rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-8px) rotateX(4deg);
     }
 }
