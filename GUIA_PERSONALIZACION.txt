@@ -1,0 +1,166 @@
+<!-- 🎯 GUÍA RÁPIDA DE PERSONALIZACIÓN -->
+
+PASOS PARA PERSONALIZADOR TU PORTAFOLIO:
+==========================================
+
+1️⃣ INFORMACIÓN PERSONAL (index.html)
+   Línea 36: Cambia "María García" por tu nombre
+   Línea 37: Cambia "Ingeniera en Sistemas" por tu profesión
+   
+   Línea 94-96: Estadísticas - Actualiza números según tu experiencia
+   
+   Línea 180-215: Habilidades técnicas - Modifica según tu stack
+
+2️⃣ PROYECTOS (index.html, líneas 220-290)
+   Para cada proyecto actualiza:
+   - Nombre del proyecto
+   - Descripción
+   - Tecnologías utilizadas
+   - Agrega el link real del proyecto
+
+3️⃣ DATOS DE CONTACTO (index.html, líneas 294-304)
+   ✉️ Email: maria@example.com → TU EMAIL
+   📱 Teléfono: +57 300 123 4567 → TU TELÉFONO
+   📍 Ubicación: Colombia → TU UBICACIÓN
+   
+   Redes sociales (líneas 305-325):
+   - LinkedIn URL
+   - GitHub URL
+   - Twitter URL
+
+4️⃣ COLORES Y TEMA (styles.css, líneas 1-11)
+   :root {
+       --primary-color: #667eea;      ← Color principal
+       --secondary-color: #764ba2;    ← Color secundario
+       --accent-color: #f093fb;       ← Color de acento
+   }
+
+5️⃣ (OPCIONAL) AGREGAR TU FOTO
+   En la sección hero, puedes reemplazar el icono flotante 
+   por una foto. Agrega en index.html línea 75:
+   
+   <img src="tu-foto.jpg" alt="Mi foto" class="profile-image">
+   
+   Y en styles.css agrega:
+   .profile-image {
+       width: 300px;
+       height: 300px;
+       border-radius: 50%;
+       background-size: cover;
+       box-shadow: var(--shadow);
+   }
+
+================================================================
+
+🚀 DESPLIEGUE RECOMENDADO - GITHUB PAGES (GRATIS):
+====================================================
+
+Pasos:
+1. Crea una cuenta en GitHub (si no la tienes)
+2. Crea un nuevo repositorio: username.github.io
+3. Sube estos archivos:
+   - index.html
+   - styles.css
+   - script.js
+   - README.md
+4. Espera 1-2 minutos
+5. Tu portafolio estará en: https://username.github.io
+
+O usa Git en terminal:
+   git add .
+   git commit -m "Portafolio inicial"
+   git push -u origin main
+
+================================================================
+
+✨ ALTERNATIVAS DE DESPLIEGUE:
+==============================
+
+NETLIFY (muy recomendado):
+- Accede a netlify.com
+- Conecta tu repositorio GitHub
+- Despliegue automático con cambios
+- Obtén dominio gratis
+
+VERCEL:
+- vercel.com
+- Enfocado en rendimiento
+- Despliegue automático
+- Dominio personalizable
+
+HEROKU/RAILWAY:
+- Plataformas para aplicaciones
+- Para portafolios más complejos
+
+================================================================
+
+✅ VALIDACIÓN FINAL:
+====================
+
+Antes de publicar, verifica:
+☑️ Todos tus datos personales sean correctos
+☑️ Los links de proyectos funcionen
+☑️ Las redes sociales tengan URLs válidas
+☑️ El formulario de contacto tenga tu email
+☑️ Responsive en móvil (usa F12 en navegador)
+☑️ Sin errores en consola (F12 → Console)
+
+================================================================
+
+📧 FORMULARIO DE CONTACTO:
+==========================
+
+Actualmente simula un envío. Para hacerlo funcional:
+
+OPCIÓN 1 - Usar Formspree (gratuito):
+1. Ve a formspree.io
+2. Crea un proyecto con tu email
+3. En index.html, línea 310, cambia:
+   <form class="contact-form" id="contactForm">
+   Por:
+   <form class="contact-form" action="https://formspree.io/f/TU_ID" method="POST">
+
+OPCIÓN 2 - Usar EmailJS:
+1. Ve a emailjs.com
+2. Configura tu email
+3. Obtén API key
+4. Agrega script en tu HTML
+5. Modifica script.js con tu configuración
+
+================================================================
+
+💡 TIPS ÚTILES:
+===============
+
+- Mantén los archivos actualizados regularmente
+- Agrega nuevos proyectos conforme los termines
+- Usa descripciones claras y concisas
+- Incluye capturas de pantalla de proyectos
+- Muestra solo lo mejor que has hecho
+- Actualiza las tecnologías que dominas
+- Incluye links a GitHub/live demos
+
+================================================================
+
+¿PREGUNTAS FRECUENTES?
+======================
+
+P: ¿Dónde guardo mis fotos?
+R: En una carpeta "images" o en un servicio like Imgur
+
+P: ¿Puedo cambiar el diseño?
+R: Claro, modifica colors en :root de styles.css
+
+P: ¿Cómo agrego más proyectos?
+R: Copia un .project-card y modifica el contenido
+
+P: ¿Es seguro publicar mi email?
+R: Sí, es común en portafolios. Para spam considera formspree.io
+
+P: ¿Necesito HTML/CSS/JS avanzado?
+R: No, este código es principiante-friendly y bien comentado
+
+================================================================
+
+¡Listo! Tu portafolio está 100% funcional. 
+¡Ahora personalízalo y muéstrale al mundo tu talento! 🚀
